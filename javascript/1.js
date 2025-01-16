@@ -125,3 +125,23 @@ window.HUB_EVENTS = {
 }, window.CP.exitedLoop = function (E) {
   window.CP.PenTimer.exitedLoop(E)
 };
+
+// Function to check if the user is on a mobile device
+function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+// Redirect mobile users to a different page or display a message
+function restrictMobileAccess() {
+    if (isMobileDevice()) {
+        // Redirect to a mobile-restricted message page
+        window.location.href = "mobile-restricted.html";
+
+        // Alternatively, show an alert or replace content dynamically
+        // alert("This website is only accessible on desktop or laptop devices.");
+        // document.body.innerHTML = "<h1>Access restricted to desktop devices only.</h1>";
+    }
+}
+
+// Call the function on page load
+restrictMobileAccess();
